@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<main class="p-4 overflow-y-auto">
+    <!-- Dashboard Content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-200">
+            <h2 class="text-lg font-semibold text-teal-400">Classes</h2>
+            <p class="mt-2">Manage all your classes.</p>
+        </div>
+        <div class="card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-200">
+            <h2 class="text-lg font-semibold text-pink-400">Teachers</h2>
+            <p class="mt-2">Manage all your teachers.</p>
+        </div>
+        <div class="card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-200">
+            <h2 class="text-lg font-semibold text-green-400">Students</h2>
+            <p class="mt-2">Manage all your students.</p>
+        </div>
+        <div class="card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-200">
+            <h2 class="text-lg font-semibold text-yellow-400">Attendance</h2>
+            <p class="mt-2">View attendance records.</p>
+        </div>
+        <div class="card bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition duration-200">
+            <h2 class="text-lg font-semibold text-blue-400">Settings</h2>
+            <p class="mt-2">Configure system settings.</p>
+        </div>
+    </div>
+</main>
+{%endblock %}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Management Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the dark theme */
+        .dark-theme {
+            background-color: #1a202c;
+            color: #a0aec0;
+        }
+
+        .dark-theme .sidebar {
+            background-color: #2d3748;
+        }
+
+        .dark-theme .sidebar a {
+            color: #a0aec0;
+        }
+
+        .dark-theme .sidebar a:hover {
+            background-color: #4a5568;
+        }
+
+        .dark-theme .toggle-sidebar-button {
+            color: #a0aec0;
+        }
+
+        .dark-theme .toggle-sidebar-button:hover {
+            color: #edf2f7;
+        }
+
+        .dark-theme .card {
+            background-color: #2d3748;
+        }
+
+        .dark-theme .card:hover {
+            background-color: #4a5568;
+        }
+
+        .dark-theme .profile-menu {
+            background-color: #2d3748;
+            color: #a0aec0;
+        }
+
+        .dark-theme .profile-menu a {
+            color: #a0aec0;
+        }
+
+        .dark-theme .profile-menu a:hover {
+            background-color: #4a5568;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <div id="sidebar" class="hidden lg:block w-64 bg-gray-800 text-gray-300">
+
+            <div class="p-4">
+                <h1 class="text-2xl font-bold text-teal-400">Attendance Management</h1>
+                <nav class="mt-6">
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 ">Dashboard</a>
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 ">Classes</a>
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 ">Teachers</a>
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 ">Students</a>
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 ">Attendance</a>
+                    <a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 ">Settings</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <header class="flex justify-between items-center p-4 bg-gray-900 text-gray-300">
+                <button id="toggle-sidebar" class="toggle-sidebar-button">
+                    ☰
+                </button>
+                <h1 class="text-xl font-bold">Dashboard</h1>
+                <div class="relative">
+                    <button id="profile-button" class="flex items-center focus:outline-none">
+                        <span>Admin</span>
+                        <img src="https://via.placeholder.com/40" alt="Admin" class="ml-4 rounded-full">
+                    </button>
+                    <div id="profile-menu" class="profile-menu absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg hidden">
+                        <a href="#" class="block px-4 py-2">Profile</a>
+                        <a href="#" class="block px-4 py-2">Logout</a>
+                    </div>
+                </div>
+            </header>
+
+            {%block content%}{%endblock content%}
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle the sidebar
+        document.getElementById('toggle-sidebar').addEventListener('click', function () {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+        });
+
+        // JavaScript to toggle the profile menu
+        document.getElementById('profile-button').addEventListener('click', function () {
+            const profileMenu = document.getElementById('profile-menu');
+            profileMenu.classList.toggle('hidden');
+        });
+
+        // Close the profile menu if clicked outside
+        window.addEventListener('click', function (e) {
+            const profileButton = document.getElementById('profile-button');
+            const profileMenu = document.getElementById('profile-menu');
+            if (!profileButton.contains(e.target) && !profileMenu.contains(e.target)) {
+                profileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
